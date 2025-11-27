@@ -61,12 +61,12 @@ const ProgramsSection = () => {
     );
 
     cardRefs.current.forEach(card => {
-      if (card) observer.observe(card);
+      if (card) observer.observe(card.querySelector('.flip-card-inner'));
     });
 
     return () => {
       cardRefs.current.forEach(card => {
-        if (card) observer.unobserve(card);
+        if (card) observer.unobserve(card.querySelector('.flip-card-inner'));
       });
     };
   }, []);
@@ -80,10 +80,12 @@ const ProgramsSection = () => {
           <div
             key={idx}
             ref={el => cardRefs.current[idx] = el}
-            className={`flip-card ${flippedIndex === idx ? 'flipped' : ''}`}
+            className="flip-card"
             onClick={() => handleFlip(idx)}
           >
-            <div className="flip-card-inner">
+            <div
+              className={`flip-card-inner ${flippedIndex === idx ? 'flipped' : ''} animate-in`}
+            >
               <div className="flip-card-front">
                 <h3 className="audience">{card.audience}</h3>
                 <p className="goal"><strong>Goal:</strong> {card.goal}</p>
