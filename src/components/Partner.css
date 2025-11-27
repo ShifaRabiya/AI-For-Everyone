@@ -1,0 +1,238 @@
+/* -----------------------------------
+   SECTION BASE
+----------------------------------- */
+.partner-metal-section {
+  padding: 4rem 2rem;
+  background: #0d0d0f;
+  color: white;
+  position: relative;
+}
+
+.partner-metal-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.partner-metal-header h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #f2f2ff;
+}
+
+.partner-metal-sub {
+  opacity: 0.7;
+  font-size: 1.1rem;
+}
+
+/* -----------------------------------
+   GRID
+----------------------------------- */
+.partner-metal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------
+   METALLIC CARD
+----------------------------------- */
+.metal-card {
+  position: relative;
+  padding: 2.5rem 1.8rem;
+  background: linear-gradient(135deg, #1a1a22, #0f0f14);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+  transform: translateY(0);
+  transition: 0.35s ease;
+  cursor: pointer;
+}
+
+/* Lift + glow on hover (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+  .metal-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(140, 70, 255, 0.5);
+    box-shadow: 0 0 25px rgba(140, 70, 255, 0.25);
+  }
+}
+
+/* -----------------------------------
+   METALLIC SHINE & NOISE
+----------------------------------- */
+.metal-shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.15),
+    transparent 50%
+  );
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.metal-noise {
+  position: absolute;
+  inset: 0;
+  background: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* -----------------------------------
+   ICON
+----------------------------------- */
+.big-icon {
+  font-size: 64px;
+  margin-bottom: 1rem;
+  color: #b57cff; /* Purple metal tone */
+  text-align: center;
+  z-index: 5;
+}
+
+/* -----------------------------------
+   TITLE + DESC
+----------------------------------- */
+.metal-title {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 0.7rem;
+  color: #e9e9ff;
+}
+
+.metal-desc {
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.75;
+  margin-bottom: 1.2rem;
+  min-height: 48px; /* keeps height consistent */
+}
+
+/* -----------------------------------
+   BULLETS (HIDDEN BY DEFAULT)
+----------------------------------- */
+.metal-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(15px);
+  transition: 0.4s ease;
+}
+
+.metal-bullets li {
+  padding: 0.4rem 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* -----------------------------------
+   REVEAL ON HOVER — DESKTOP
+----------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+  .metal-card:hover .metal-bullets {
+    opacity: 1;
+    max-height: 300px;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------------------------
+   REVEAL ON TAP — MOBILE
+----------------------------------- */
+/* Mobile fallback: allow tapping to toggle visibility */
+@media (hover: none) and (pointer: coarse) {
+  .metal-card:active .metal-bullets,
+  .metal-card:focus .metal-bullets {
+    opacity: 1;
+    max-height: 300px;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------------------------
+   BUTTON
+----------------------------------- */
+.partner-metal-foot {
+  text-align: center;
+  margin-top: 3.5rem;
+}
+
+.partner-metal-btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, #8a2eff, #5c13b8);
+  color: white;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 0.75rem;
+  transition: 0.2s;
+  box-shadow: 0 0 15px rgba(140, 70, 255, 0.4);
+}
+
+.partner-metal-btn:hover {
+  box-shadow: 0 0 25px rgba(140, 70, 255, 0.65);
+}
+
+/* default: hidden */
+.metal-bullets {
+  list-style: disc; /* Show bullets */
+  padding-left: 1.5rem; /* Space for bullets */
+  margin: 0;
+  opacity: 0;
+  max-height: 0; /* hide initially */
+  overflow: hidden;
+  transform: translateY(15px);
+  transition: all 0.35s ease;
+  color: #ccc; /* text color */
+}
+
+/* Individual bullet style */
+.metal-bullets li {
+  padding: 0.4rem 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Custom purple bullets */
+.metal-bullets li::marker {
+  color: #b57cff; /* purple theme */
+}
+
+/* DESKTOP: show on hover */
+@media (hover: hover) and (pointer: fine) {
+  .metal-card:hover .metal-bullets {
+    opacity: 1;
+    max-height: 500px; /* enough to show all bullets */
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE: show when React adds "expanded" */
+.metal-card.expanded .metal-bullets {
+  opacity: 1;
+  max-height: 500px;
+  transform: translateY(0);
+}
+
+/* MOBILE: when tapped/expanded, apply hover effects */
+.metal-card.expanded {
+  transform: translateY(-10px);
+  border-color: rgba(140, 70, 255, 0.5);
+  box-shadow: 0 0 25px rgba(140, 70, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+  .partner-metal-header h2 {
+    font-size: 2rem;
+  }
+}

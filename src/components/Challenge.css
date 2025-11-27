@@ -1,0 +1,122 @@
+.challenge-section {
+  padding: 80px 20px;
+  padding-bottom: 120px;
+  background: #0d0d0f; /* matched */
+  color: #fff;
+  text-align: center;
+  justify-content: center;
+}
+
+.section-title {
+  font-size: 3rem !important;
+  font-weight: 800;
+  text-align: center;
+  color: #fff;
+  margin: 0 auto 50px auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.section-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.challenge-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* -----------------------------------
+   MATCHED: METAL + PURPLE CARD
+----------------------------------- */
+.challenge-card {
+  position: relative;
+
+  /* SAME GRADIENT AS METAL CARD */
+  background: linear-gradient(135deg, #1a1a22, #0f0f14);
+
+  border-radius: 1.5rem;
+
+  /* SAME subtle border */
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  padding: 40px 30px;
+  width: 280px;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out, border 0.35s ease, box-shadow 0.35s ease,
+    transform 0.35s ease;
+
+  overflow: hidden;
+}
+
+/* SCROLL-REVEAL */
+.challenge-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HOVER EFFECT — EXACT MATCH */
+@media (hover: hover) and (pointer: fine) {
+  .challenge-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(140, 70, 255, 0.5);
+    box-shadow: 0 0 25px rgba(140, 70, 255, 0.25);
+  }
+}
+
+/* ADD THE METAL SHINE + NOISE */
+.challenge-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.15),
+    transparent 50%
+  );
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.challenge-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* -----------------------------------
+   CONTENT (UPDATED TO PURPLE)
+----------------------------------- */
+
+.challenge-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #8c46ff; /* SAME PURPLE */
+}
+
+.challenge-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #b57cff; /* pastel purple glow */
+  margin-bottom: 15px;
+}
+
+.challenge-title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #e9e9ff;
+}

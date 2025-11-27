@@ -1,0 +1,84 @@
+/* Overlay background */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal content */
+.modal-content {
+  background: linear-gradient(135deg, #1a1a22, #0f0f14);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  width: 90%;
+  max-width: 480px;
+  position: relative;
+  color: #f2f2ff;
+  box-shadow: 0 0 25px rgba(140, 70, 255, 0.35);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Close button */
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #b57cff;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+  color: #fff;
+}
+
+/* Form styling */
+.partner-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.partner-form input,
+.partner-form textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border 0.2s;
+}
+
+.partner-form input:focus,
+.partner-form textarea:focus {
+  border-color: #b57cff;
+}
+
+/* Submit button */
+.partner-form .partner-metal-btn {
+  margin-top: 0.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* Fade-in animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

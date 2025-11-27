@@ -1,0 +1,26 @@
+/* index.css or App.css (global styles) */
+
+/* Make html, body, root always full height and black */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* solid black */
+  color: #fff; /* optional: default text white */
+  font-family: "Inter", sans-serif; /* optional default font */
+}
+
+/* Make main App container also black */
+.App {
+  text-align: center;
+  min-height: 100vh; /* ensure it fills viewport */
+  width: 100%;
+  background-color: #000;
+}
+
+/* Any other defaults for components */
+* {
+  box-sizing: border-box;
+}

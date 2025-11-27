@@ -1,0 +1,31 @@
+.campaign-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #0f0f14, #1a1a22);
+  color: #f2f2ff;
+  text-align: center;
+  opacity: 0; /* start hidden */
+  transform: translateY(30px); /* start slightly lower */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.campaign-section.visible {
+  opacity: 1;
+  transform: translateY(0); /* animate into position */
+}
+
+.campaign-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.campaign-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #b57cff; /* accent purple */
+}
+
+.campaign-desc {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.85;
+}
